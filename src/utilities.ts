@@ -116,6 +116,7 @@ export interface User {
  */
 export class UserService {
   private users: User[] = [];
+  private user: User[] = [];
   private nextId: number = 1;
 
   /**

@@ -2,9 +2,9 @@ name: SonarQube Analysis with Test Coverage
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, issues]
   pull_request:
-    branches: [main, develop]
+    branches: [main, develop, issues]
 
 jobs:
   build:
