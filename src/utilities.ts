@@ -198,37 +198,37 @@ export class UserService {
 /**
  * Duplicate of Array utilities (intentionally duplicated for testing duplication metric)
  */
-// export class ArrayUtilsDuplicate {
-//   max(arr: number[]): number {
-//     if (arr.length === 0) {
-//       throw new Error("Array cannot be empty");
-//     }
-//     return Math.max(...arr);
-//   }
+export class ArrayUtilsDuplicate {
+  max(arr: number[]): number {
+    if (arr.length === 0) {
+      throw new Error("Array cannot be empty");
+    }
+    return Math.max(...arr);
+  }
 
-//   min(arr: number[]): number {
-//     if (arr.length === 0) {
-//       throw new Error("Array cannot be empty");
-//     }
-//     return Math.min(...arr);
-//   }
+  min(arr: number[]): number {
+    if (arr.length === 0) {
+      throw new Error("Array cannot be empty");
+    }
+    return Math.min(...arr);
+  }
 
-//   sum(arr: number[]): number {
-//     return arr.reduce((acc, val) => acc + val, 0);
-//   }
+  sum(arr: number[]): number {
+    return arr.reduce((acc, val) => acc + val, 0);
+  }
 
-//   average(arr: number[]): number {
-//     if (arr.length === 0) {
-//       throw new Error("Array cannot be empty");
-//     }
-//     return this.sum(arr) / arr.length;
-//   }
+  average(arr: number[]): number {
+    if (arr.length === 0) {
+      throw new Error("Array cannot be empty");
+    }
+    return this.sum(arr) / arr.length;
+  }
 
-//   unique<T>(arr: T[]): T[] {
-//     return Array.from(new Set(arr));
-//   }
+  unique<T>(arr: T[]): T[] {
+    return Array.from(new Set(arr));
+  }
 
-//   contains<T>(arr: T[], value: T): boolean {
-//     return arr.includes(value);
-//   }
-// }
+  contains<T>(arr: T[], value: T): boolean {
+    return arr.includes(value);
+  }
+}
