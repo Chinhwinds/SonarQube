@@ -49,6 +49,10 @@ describe("DateUtils", () => {
   });
 
   describe("getAge", () => {
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
     test("should calculate correct age", () => {
       const birthDate = new Date();
       birthDate.setFullYear(birthDate.getFullYear() - 30);
@@ -63,6 +67,26 @@ describe("DateUtils", () => {
         today.getDate(),
       );
       expect(dateUtils.getAge(birthDate)).toBe(25);
+    });
+
+    test("should decrement age when birthday is later in the year (monthDiff < 0)", () => {
+      const today = new Date(2024, 2, 15); // March 15, 2024
+      jest.useFakeTimers();
+      jest.setSystemTime(today);
+      const birthDate = new Date(1994, 10, 20); // November 20, 1994
+      // Age should be 29 because birthday hasn't occurred yet this year
+      const age = dateUtils.getAge(birthDate);
+      expect(age).toBe(29);
+    });
+
+    test("should decrement age when birthday is later in the same month (monthDiff === 0 but date not reached)", () => {
+      const today = new Date(2024, 5, 10); // June 10, 2024
+      jest.useFakeTimers();
+      jest.setSystemTime(today);
+      const birthDate = new Date(1994, 5, 25); // June 25, 1994
+      // Age should be 29 because birthday hasn't occurred yet this month
+      const age = dateUtils.getAge(birthDate);
+      expect(age).toBe(29);
     });
   });
 });
