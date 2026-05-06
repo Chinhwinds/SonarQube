@@ -29,6 +29,10 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
+      - name: Get project version
+        id: project_version
+        run: echo "version=$(node -p \"require('./package.json').version\")" >> $GITHUB_OUTPUT
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
         env:
@@ -37,6 +41,7 @@ jobs:
         with:
           args: >
             -Dsonar.projectBaseDir=.
+            -Dsonar.projectVersion=${{ steps.project_version.outputs.version }}
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
       - name: SonarQube Quality Gate
