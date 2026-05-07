@@ -29,6 +29,13 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          if-no-files-found: error
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
         env:
