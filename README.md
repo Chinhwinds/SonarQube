@@ -17,7 +17,7 @@ npm run test:coverage
 This will:
 
 - Run all Jest tests
-- Generate code coverage reports
+- Generate code coverage report
 - Create LCOV report at `coverage/lcov.info`
 
 ### 3. Build Project
